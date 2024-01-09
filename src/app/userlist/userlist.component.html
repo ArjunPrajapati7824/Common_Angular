@@ -1,0 +1,151 @@
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About us</a></li>
+        </ul>
+        <p>Angular 12</p>
+    </nav>
+
+<p class ="userlist">userlist works Properly Own UserList Component!</p>
+
+<p class="common">common text which have class name in multiple component This Component name is UserList</p>
+
+
+
+<!--Internal style example-->
+<!--css prioprity 1st Inline 2nd Internal and last external or common Css-->
+
+
+
+<!--Example of 1st priority inline -->
+<p style="color:brown" class="common">Inline Css Example</p>
+
+<style>
+    .common{color:cadetblue}
+</style>
+
+
+<!--Example of 2nd priority internal -->
+
+<p class="common">Inline Css Example</p>
+
+<style>
+    .common{color:cadetblue}
+</style>
+
+
+<!--Example of 13rd priority common css globaly -->
+
+<p class="common">Inline Css Example</p>
+
+
+<hr>
+ <!--Example of Bootstrap in Angular-->
+
+ <h4>Example of Angulr Bootstrap</h4>
+<ngb-alert [dismissible]="false">
+	<strong>Alert using Bootstrap!</strong> Better check yourself, you're not looking too good.
+</ngb-alert>
+
+
+
+
+<div ngbAccordion #accordion="ngbAccordion">
+	<div ngbAccordionItem="first">
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>First panel</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+					officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+					moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+					keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+					butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+					haven't heard of them accusamus labore sustainable VHS.
+				</ng-template>
+			</div>
+		</div>
+	</div>
+	<div ngbAccordionItem="second">
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>Second panel</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+					officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+					moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+					keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+					butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+					haven't heard of them accusamus labore sustainable VHS.
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.toggle('first')">Toggle first</button>
+<button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.toggle('second')">Toggle second</button>
+<button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.expandAll()">Expand all</button>
+<button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.collapseAll()">Collapse all</button>
+<hr />
+
+<!--Example of make to do list where add data in list and also delete data-->
+<input	type="text" placeholder="Enter Task" #task/>&nbsp;
+<button (click)="addTask(task.value)" class="btn btn-success">Add Task</button>
+
+<div class="container col-sm-8">
+<h3 style="align-items: center;">Example To Do List</h3>
+ <table class=" table table-bordered "  border="1" *ngIf="list.length!=0" >
+    
+    <tr>
+        <th >No.</th>
+        <th >Name</th>
+        <th >Action</th>
+        
+    </tr>
+    <tr *ngFor="let data of list">
+        <td> {{data.id}}</td>
+        <td>{{data.name}}</td>
+        <td><button (click)="deleteTask(data.id)" class="btn btn-danger">Delete</button></td>
+    </tr>
+</table>
+</div>
+
+<br>
+<hr>
+<h6>Example of transfer or send data from child to parent</h6>
+<h1>{{datachild}}</h1>
+
+<input type="text" placeholder="Enter Data" #data>&nbsp;
+
+<button (click)="updateDataEvent.emit(data.value)">Update Data</button>
+<hr>
+
+<!-- <form>
+	<div class="mb-3 row">
+		<label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
+		<div class="col-xs-3 col-sm-auto">
+			
+		</div>
+	</div>
+</form>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>To Do List</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr *ngFor="let data of list">
+				<td style="text-align: center">{{data.id}}</td>
+				<td  style="text-align: center">{{data.name}}</td>
+			</tr>
+	</tbody>
+</table> -->

@@ -1,0 +1,30 @@
+<h1><i><app-userlist (updateDataEvent)="updateData($event)"  [datachild]="dataChild"></app-userlist></i></h1>
+<h1>Example of transfer data of Array from parent to child </h1>
+
+<ul *ngFor ="let item of data">
+<h2><app-country [data1]="item" ></app-country></h2></ul>
+    <button (click)="updataChild()">Update Child Data</button>
+<h3><app-login [item]="datapass"></app-login></h3>     
+<!-- -->
+
+<!--Example of Two Way binding
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Country</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">UserList</a></li>
+        </ul>
+        <p>Angular 12</p>
+    </nav>
+    <!-- <router-outlet></router-outlet> -->
+
+<h6>Example of Two Way binding</h6>
+<input type="text" placeholder="Enter Data" [(ngModel)]="name">
+<h3>{{name}}</h3>
+<hr>
+
+<app-register></app-register>
+<app-login></app-login>
+

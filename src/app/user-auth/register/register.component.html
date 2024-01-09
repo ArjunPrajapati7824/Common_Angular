@@ -1,0 +1,59 @@
+<p>Register works Properly!</p>
+<h3>Pipes Example</h3>
+
+<hr>
+<h3>Forms Example</h3>
+<form #formData="ngForm" (ngSubmit)="getData(formData.value)">
+    <input type="text" ngModel name="username" ngModel placeholder="Enter Name" >&nbsp;
+    <input type="number" ngModel name="phone" ngModel placeholder="Enter Contact Number" >&nbsp;
+    <input type="password" ngModel name="password" ngModel placeholder="Enter password" >&nbsp;
+    <button>Submit</button>
+    
+</form>
+<!-- <button (click)="getData(formData.value)">Submit outside</button> -->
+
+    {{userData.username}}
+    {{userData.phone}}
+    {{userData.password}}
+
+<hr>
+<h3>Reactive Form Example</h3>
+
+<form [formGroup]="registerform" (ngSubmit)="registrationForm()">
+    <input type="text" placeholder="Enter UserName" name="username" formControlName="username"/><br><br>
+    <span style="color:red" *ngIf="username && username.invalid && username.touched">This is a required Field</span>
+    <input type="password" placeholder="Enter Number" name="phone" formControlName="phone"/><br><br>
+    <span style="color:red" *ngIf="phone && phone.invalid && phone.touched">This is a required Field</span>
+
+    <button >Submit</button>
+    <!-- <button [disabled]="registerform.invalid">Submit</button> -->
+    </form>
+
+    <!-- {{formGroup:username}}
+    {{formGroup:username}} -->
+    
+<hr>
+<h1 appRedColorElement> Example of Directives change color of Element This Red color change by directive </h1>
+
+
+<hr>
+
+
+<h1>{{title | uppercase}}</h1>
+<h1>{{title | lowercase}}</h1>
+<h1>{{title | slice : 2}}</h1><!--Slicing with string using pipes-->
+<h1>{{title | slice : 2 : 8 | uppercase | lowercase}}</h1><!--use more than one pipes in one string-->
+<h1>{{today }}</h1>
+<h1>{{today | date}}</h1>
+<h1>{{today | date: 'fullDate' | uppercase}}</h1>
+<h1>{{users | json | uppercase}}</h1><!--Fetch data from obkect using pipes with jason property -->
+<h1>{{005547401000.367832200000 | number:'2.2-8' }}</h1><!--Slicing with numbers :remove all first zero value from number 
+    after decimal take numbers till 0 -->
+<h1>{{20 | currency : 'INR' }}</h1><!--Currency pipe-->
+<h1>{{20 | currency : 'USD' }}</h1>
+
+
+<!--Letis try only 1st letter of string is uppercase other than is lowercase-->
+<h1>{{"Hello World How Are You" |  slice:0:1 | uppercase}} {{"Hello World How Are You" | slice :1 | lowercase}}</h1>
+
+<h1>My Cusom pipe {{100 | usdInr :82}}</h1>

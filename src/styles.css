@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* benfit where u have same class name in multiple components */
+
+.common{
+    color:blueviolet;
+}
+
+body{
+    margin: 0;
+}
+

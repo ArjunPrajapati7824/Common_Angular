@@ -1,0 +1,244 @@
+
+<hr>
+<p>Example of get component from child component</p>
+<h1>{{item}}</h1>
+<hr>
+<p class="login">login works Properly Own Login Component!</p>
+
+
+<p class="common">common text which have class name in multiple component This Component name is Login</p>
+
+
+<hr>
+
+
+<!--Example of material UI-->
+
+
+
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+
+<div class="example-button-row">
+    <button mat-raised-button>Basic</button>&nbsp;
+    <button mat-raised-button color="primary">Primary</button>&nbsp;
+    <button mat-raised-button color="accent">Accent</button>&nbsp;
+    <button mat-raised-button color="warn">Warn</button>&nbsp;
+    <button mat-raised-button disabled>Disabled</button>&nbsp;
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+
+<br>
+  &nbsp;&nbsp;<button mat-raised-button color="primary"
+     matBadgePosition="before" matBadgeColor="accent" matBadge="5">
+  Action
+</button>
+
+
+<hr>
+<h6>Example of Toogle Element or Tag</h6>
+<div>
+    
+</div>
+<h3 *ngIf="displayToggle">I am Toggle</h3>
+<h3 >I am Toggle</h3>
+<button (click)="toggle()">Toggle</button>
+<hr>
+
+
+<h6>Basic Form Example</h6>
+<form #basicForm="ngForm" (ngSubmit)="getData(basicForm.value)">
+    <input type="text" ngModel name="username" placeholder="Enter Name"/><br>
+    <input type="email" ngModel name="email" placeholder="Enter Email"/><br>
+    <input type="password" ngModel name="Password" placeholder="Enter Password"/><br>
+    <button>Submit</button>
+    </form>
+
+  <h6>{{userData.username}}</h6>
+  <h6>{{userData.email}}</h6>
+  <h6>{{userData.password}}</h6>
+<hr>
+
+
+
+
+
+<p>Property Binding Exaple</p>
+
+<input type="text" value={{name}} disabled={{disable}} /><br><!--Example of Interpolation-->
+<input type="text" [value]=name [disabled]=disable /><br><!--Example of Property binding-->
+<!--Main Difference between property binding and interpolation is
+interpolation use for only Number and String values while property binding use for 
+Number , String and Boolen Value Also-->
+<hr>
+
+
+<hr>
+<!--Example of for Loop using Angular style-->
+
+<h6 style="display:inline" *ngFor="let item of users">Mr . {{item}}</h6>
+<hr>
+<p>Fetch data from object array and store in table using loop</p>
+<table style="color:darkslategray;" border="10">
+    
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+    </tr>
+    <tr *ngFor="let data of usersDetails">
+        <td>{{data.name}}</td>
+        <td>{{data.age}}</td>
+        <td>{{data.address}}</td>
+    </tr>
+</table>
+<hr>
+
+
+
+
+<hr>
+<!--Example of Nested for Loop using Angular style-->
+<ol *ngFor="let user of usersNest">
+    <li>Name :{{user.name}}</li>
+    <li>Age :{{user.age}}</li>
+    <li>Address :{{user.address}}</li>
+    <ul *ngFor="let social of user.socialMedia">
+        <li>{{social}}</li>
+    </ul>
+</ol>
+<hr>
+
+
+
+
+
+<hr>
+<!--Example of Style Binding-->
+<h6>Example of Style Binding change property value dynamically</h6>
+<p [style.color]="colorbinding" [style.background-color]="bgcolorbinding">Example of Style Binding</p>
+<button (click)="update('update')">Update Color</button>&nbsp;
+<button (click)="update('reset')">Reset Color</button>
+<hr>
+
+
+<p>Example of change propert name with Normal If Else Condition aama class name change thay che</p>
+<Button class="backI" (click)="counter('add')">Increment</Button>
+<Button class="backD" (click)="counter('minus')">Decrement</Button>
+
+<h1 [class]=CounterColor> {{Counter}}</h1><!--dynamically class name change when user click on button-->
+
+<hr>
+
+
+
+<hr>
+<p>Exaple of hide and show text box using angular if else conditions </p>
+<button (click)="hideShow('react')">React</button>&nbsp;
+<button (click)="hideShow('angular')">Angular</button>
+
+<h1 *ngIf="show=='angular' then ifBlock1 else elseBlock1"></h1>
+
+<ng-template #ifBlock1>
+<h1 style="color:coral;" >Angular 12</h1>
+</ng-template>
+
+<ng-template #elseBlock1>
+<h1 style="color:blue;" >React Js</h1>
+</ng-template>
+
+<hr>
+
+
+
+
+
+Example of change color when user click on button using if else conditions
+<hr>
+
+<!--using if condidtion-->
+<!--
+<ng-template [ngIf]="color==='red'">
+    <input style="background-color: red; width:5% ; height:5ric;" type="button"/>
+</ng-template>
+
+<ng-template [ngIf]="color==='green'">
+    <input style="background-color: green; width:5% ; height:5ric;" type="button"/>
+</ng-template>
+
+<ng-template [ngIf]="color==='blue'">
+    <input style="background-color: blue; width:5% ; height:5ric;" type="button"/>
+</ng-template>
+
+
+<ng-template [ngIf]="color==='maroon'">
+    <input style="background-color: maroon; width:5% ; height:5ric;" type="button"/>
+</ng-template>
+
+
+<ng-template [ngIf]="color==='palevioletred'">
+    <input style="background-color: palevioletred; width:5% ; height:5ric;" type="button"/>
+</ng-template>
+-->
+
+<!--using switch case-->
+
+<div [ngSwitch]="color">
+    <p *ngSwitchCase="'red'" style="color:red;" >Red Color</p>
+    <p *ngSwitchCase="'green'" style="color:green;" >Green Color</p>
+    <p *ngSwitchCase="'blue'" style="color:blue;" >Blue Color</p>
+    <p *ngSwitchCase="'maroon'" style="color:maroon;" >Maroon Color</p>
+    <p *ngSwitchCase="'palevioletred'" style="color:palevioletred;" >Pink Color Color</p>
+    <p *ngSwitchDefault>Unknown Color</p>
+
+        
+</div>
+<hr>
+<button  style="background-color:red; " (click)="changeColor('red')">Red </button>&nbsp;
+<button style="background-color:green; color: aliceblue;" (click)="changeColor('green')">Green </button>&nbsp;
+<button style="background-color:blue; color: aliceblue; " (click)="changeColor('blue')">Blue </button>&nbsp;
+<button  style="background-color:maroon; color: aliceblue; " (click)="changeColor('maroon')">Maroon </button>&nbsp;
+<button style="background-color:palevioletred;" (click)="changeColor('palevioletred')">Pink </button>
+
+
+
+
+
+<hr>
+<p>Example of change propert name with Angular Type If Else Condition aama class name change thay che</p>
+<Button class="backI" (click)="counter2('add')">Increment</Button>
+<Button class="backD" (click)="counter2('minus')">Decrement</Button>
+
+<h1 *ngIf="cc=='green' then ifBlock else elseBlock"> </h1><!--dynamically class name change when user click on button-->
+
+<ng-template #ifBlock >
+<h1 class=green > {{c}}</h1>
+</ng-template><!--dynamically class name change when user click on button-->
+
+<ng-template #elseBlock >
+    <h1 class=red > {{c}}</h1>
+</ng-template>
+<!--dynamically class name change when user click on button-->
+
+<hr>
+
+
+
+<Button (click)="callFunc()">Click me</Button><!-- (button click event) -->
+<br>
+<Button (click)="callNumber('hello')">Counter</Button>
+<hr>
+
+
+<input type="text" placeholder="Key Up Event" #data (keyup)="callData(data.value)"/><br><!-- (input type change event) -->
+<input type="text" placeholder="Key Down Event" #data1 (keydown)="callData(data1.value)"/><br><!-- (input type change event) -->
+<input type="text" placeholder="Blur Event"  #data2 (blur)="callData(data2.value)"/><br><!-- (when focud remove from input text then print) -->
+<input type="text" placeholder="Input Event" #data3 (input)= "callData(data3.value)"/><br><!-- (when focud remove from input text then print) -->
+<Button (click)="callData(data3.value)">Submit</Button>
+<h1>Welcome : {{display}}</h1>
+
+<hr>
+
+<br>    
+<p (mouseover)="callData('MouseOver Clicked')" (click)="callData('MouseOver Clicked')">Mouse Over</p><!--You can also add more them one evemt in single tag-->
+<p (mouseleave)="callData('MouseOver Leaved')">Mouse Leave</p>
+
